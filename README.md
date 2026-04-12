@@ -9,7 +9,19 @@
 
 ---
 
-## 🏗️ Structure
+## 🎓 Technical Alignment (Year 2: Achieve)
+
+This project is curated for the **Advanced Industry-First Curriculum**, demonstrating mastery in building data-driven complex systems:
+
+- **Backend Engineering**: Robust Node.js API with custom middleware and JWT security.
+- **Database Systems**: High-performance data retrieval using **MongoDB** for flexible agricultural data schemas.
+- **Analysis & Design of Algorithms**: Implements **Last-mile Delivery Route Optimization** using Dijkstra's algorithm ([delivery_optimizer.py](file:///services/api/src/services/delivery_optimizer.py)).
+- **AI & Machine Learning**: Integrated Python microservice for automated pest diagnosis using TensorFlow.
+- **System Design**: Microservices-oriented architecture with decoupled Web, Mobile, and AI layers.
+
+---
+
+## 📂 Internal Structure
 
 This repository is organized into workspaces for streamlined development:
 
