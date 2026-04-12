@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+:root { --primary-green: #34a853; --dark-green: #2b8c45; --light-bg: #f9f9f7; --card-bg: #ffffff; --border-color: #e0e0e0; --text-primary: #212121; --text-secondary: #5f6368; --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); --border-radius: 12px; }
+body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--light-bg); color: var(--text-primary); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.app-container { max-width: 1200px; margin: 0 auto; padding: 2rem; min-height: 100vh; display: flex; flex-direction: column; }
+main { flex-grow: 1; }

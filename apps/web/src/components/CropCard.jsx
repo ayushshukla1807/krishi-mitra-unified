@@ -1,0 +1,10 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaChartLine } from 'react-icons/fa';
+import './CropCard.css';
+const getCategoryClass = (category) => { if (category === 'Crop') return 'tag-crop'; if (category === 'Fruit') return 'tag-fruit'; if (category === 'Vegetable') return 'tag-vegetable'; return ''; };
+const CropCard = ({ crop }) => {
+  const { t } = useTranslation();
+  return ( <div className="crop-card"> <div className="card-header"> <div className="crop-title"> <img src={crop.icon} alt={crop.name} className="crop-icon" /> <div> <h2>{crop.name}</h2> <p className="hindi-name">{crop.hindiName}</p> </div> </div> <span className={`category-tag ${getCategoryClass(crop.category)}`}>{crop.category}</span> </div> <div className="card-section"> <div className="info-grid"> <div> <p className="info-label">{t('season')}</p> <p className="info-value">{crop.season}</p> </div> <div> <p className="info-label">{t('water_need')}</p> <p className="info-value">{crop.waterNeed}</p> </div> </div> <p className="info-label">{t('soil_type')}</p> <p className="info-value">{crop.soilType}</p> </div> <div className="card-section"> <p className="section-title">{t('best_practices')}</p> <ul className="practices-list"> {crop.bestPractices.map((practice, index) => (<li key={index}>{practice}</li>))} </ul> </div> <div className="specifications-box"><p>{crop.specifications}</p></div> <div className="specs-grid"> <div> <p className="spec-label">Temperature</p> <p className="spec-value">{crop.temperature}</p> </div> <div> <p className="spec-label">Rainfall</p> <p className="spec-value">{crop.rainfall}</p> </div> <div> <p className="spec-label">Soil pH</p> <p className="spec-value">{crop.soilPH}</p> </div> <div> <p className="spec-label">Weather</p> <p className="spec-value">{crop.weather}</p> </div> </div> <div className="market-price"> <FaChartLine className="market-icon" /> <span className="market-label">{t('market_price')}</span> <span className="price-value">{crop.marketPrice}</span> </div> </div> );
+};
+export default CropCard;
