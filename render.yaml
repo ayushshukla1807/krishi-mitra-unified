@@ -1,0 +1,51 @@
+services:
+  # 1. AI Engine (Python FastAPI)
+  - type: web
+    name: krishi-mitra-ai
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn src.main:app --host 0.0.0.0 --port $PORT"
+    rootDir: services/ai
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: GOOGLE_API_KEY
+        sync: false
+
+  # 2. API Backend (Node JS)
+  - type: web
+    name: krishi-mitra-api
+    env: node
+    buildCommand: "npm install"
+    startCommand: "node src/app.js"
+    rootDir: services/api
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
+      - key: MONGO_URI
+        sync: false
+
+  # 3. Web Dashboard (React/Vite)
+  - type: web
+    name: krishi-mitra-web
+    env: static
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: ./dist
+    rootDir: apps/web
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: krishi-mitra-api
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: VITE_AI_API_URL
+        fromService:
+          type: web
+          name: krishi-mitra-ai
+          envVarKey: RENDER_EXTERNAL_URL
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
