@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+tensorflow
+Pillow
+python-multipart
+langchain
+langchain-google-genai
+python-dotenv
