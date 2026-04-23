@@ -8,6 +8,7 @@ import LoginPage from './pages/LoginPage';
 import CropsPage from './pages/CropsPage';
 import MachineRentalPage from './pages/MachineRentalPage';
 import DiseaseDetectionPage from './pages/DiseaseDetectionPage';
+import MarketAnalyticsPage from './pages/MarketAnalyticsPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
                   <Route path="/dashboard" element={<DashboardPage />} />
                   <Route path="/crops" element={<CropsPage />} />
                   <Route path="/rentals" element={<MachineRentalPage />} />
+                  <Route path="/market-analytics" element={<MarketAnalyticsPage />} />
                   <Route path="/disease-detection" element={<DiseaseDetectionPage />} />
                   <Route path="/ai-agronomist" element={<AIAgronomistPage />} />
                   <Route path="*" element={<Navigate to="/dashboard" replace />} />

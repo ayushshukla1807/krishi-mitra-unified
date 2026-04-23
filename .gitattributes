@@ -1,0 +1,9 @@
+# Language Overrides
+# Ignore large web boilerplate
+web/static/* linguist-vendored
+web/node_modules/* linguist-vendored
+package-lock.json linguist-generated
+
+# Highlight Core Engineering Services
+services/**/*.go linguist-detectable
+services/**/*.py linguist-detectable
