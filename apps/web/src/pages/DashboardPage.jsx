@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useIoTTelemetry } from '../hooks/useIoTTelemetry';
-import { Droplet, Thermometer, Wind, Beaker, ReplaceSweep } from 'lucide-react';
+import { Droplet, Thermometer, Wind, Beaker, Recycle } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 export default function DashboardPage() {
