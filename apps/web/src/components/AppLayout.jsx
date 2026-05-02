@@ -1,13 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Home, Sprout, Tractor, Stethoscope, MessageSquare, LogOut } from 'lucide-react';
+import { Home, Sprout, Tractor, Stethoscope, MessageSquare, LogOut, TrendingUp } from 'lucide-react';
 
 export default function AppLayout({ children }) {
   const navItems = [
     { to: '/dashboard', icon: Home, label: 'Overview' },
     { to: '/crops', icon: Sprout, label: 'Crops' },
     { to: '/rentals', icon: Tractor, label: 'Rentals' },
+    { to: '/market-analytics', icon: TrendingUp, label: 'Market Intelligence' },
     { to: '/disease-detection', icon: Stethoscope, label: 'Diagnosis' },
     { to: '/ai-agronomist', icon: MessageSquare, label: 'AI Agronomist' },
   ];

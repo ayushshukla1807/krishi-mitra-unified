@@ -27,7 +27,7 @@ services:
 
   # 3. Web Dashboard (React/Vite)
   - type: web
-    name: krishi-mitra-web
+    name: krishi-mitra-ayush
     env: static
     buildCommand: "npm install && npm run build"
     staticPublishPath: ./dist
