@@ -17,7 +17,7 @@ const LoginPage = () => {
   const { t } = useTranslation();
 
   const generateRecaptcha = () => {
-    if (window.recaptchaVerifier) return; // Prevent re-rendering
+    if (window.recaptchaVerifier || !auth) return; // Prevent re-rendering or crash
     window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
       'size': 'invisible',
       'callback': (response) => { /* reCAPTCHA solved */ }
@@ -27,6 +27,10 @@ const LoginPage = () => {
   const handleSendOtp = (e) => {
     e.preventDefault();
     if (phone.length === 10) {
+      if (!auth) {
+        alert("Authentication service is currently unavailable. Please try again later.");
+        return;
+      }
       generateRecaptcha();
       const appVerifier = window.recaptchaVerifier;
       const fullPhoneNumber = `+91${phone}`;

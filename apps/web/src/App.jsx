@@ -13,27 +13,20 @@ import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
 function App() {
+  console.log('App Rendering...');
   return (
     <AuthProvider>
       <Router>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
-          
-          <Route path="/*" element={
-            <ProtectedRoute>
-              <AppLayout>
-                <Routes>
-                  <Route path="/dashboard" element={<DashboardPage />} />
-                  <Route path="/crops" element={<CropsPage />} />
-                  <Route path="/rentals" element={<MachineRentalPage />} />
-                  <Route path="/market-analytics" element={<MarketAnalyticsPage />} />
-                  <Route path="/disease-detection" element={<DiseaseDetectionPage />} />
-                  <Route path="/ai-agronomist" element={<AIAgronomistPage />} />
-                  <Route path="*" element={<Navigate to="/dashboard" replace />} />
-                </Routes>
-              </AppLayout>
-            </ProtectedRoute>
-          } />
+          <Route path="/dashboard" element={<ProtectedRoute><AppLayout><DashboardPage /></AppLayout></ProtectedRoute>} />
+          <Route path="/crops" element={<ProtectedRoute><AppLayout><CropsPage /></AppLayout></ProtectedRoute>} />
+          <Route path="/rentals" element={<ProtectedRoute><AppLayout><MachineRentalPage /></AppLayout></ProtectedRoute>} />
+          <Route path="/market-analytics" element={<ProtectedRoute><AppLayout><MarketAnalyticsPage /></AppLayout></ProtectedRoute>} />
+          <Route path="/disease-detection" element={<ProtectedRoute><AppLayout><DiseaseDetectionPage /></AppLayout></ProtectedRoute>} />
+          <Route path="/ai-agronomist" element={<ProtectedRoute><AppLayout><AIAgronomistPage /></AppLayout></ProtectedRoute>} />
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>
     </AuthProvider>

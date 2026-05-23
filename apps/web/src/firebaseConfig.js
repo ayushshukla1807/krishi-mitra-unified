@@ -1,11 +1,7 @@
 // src/firebaseConfig.js - FINAL AND CORRECT VERSION
-
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth"; // We only need getAuth for OTP login
+import { getAuth } from "firebase/auth";
 
-// Your web app's Firebase configuration
-// This object contains your real, unique credentials.
 const firebaseConfig = {
   apiKey: "AIzaSyB8rUDYl-YVyqsiEqTJA0KvzmpwT0qvJb4",
   authDomain: "krishi-mitra-auth.firebaseapp.com",
@@ -16,9 +12,11 @@ const firebaseConfig = {
   measurementId: "G-1G5XWE5JGV"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+let app;
+try {
+  app = initializeApp(firebaseConfig);
+} catch (error) {
+  console.error("Firebase Initialization Error:", error);
+}
 
-// Initialize Firebase Authentication and get a reference to the service.
-// This is what our LoginPage will use.
-export const auth = getAuth(app);
+export const auth = app ? getAuth(app) : null;
